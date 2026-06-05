@@ -1,11 +1,44 @@
-<!doctype html>
-<html lang="de">
-  <head>
-    <meta charset="UTF-8" />
-    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-    <title>Paradox</title>
-  </head>
-  <body style="background-color: blue;">
-   TEST
-  </body>
+<!DOCTYPE html>
+<html>
+    <meta charset="utf-8">
+    <link rel="stylesheet" href="stylesheet.css">
+	<link href="https://fonts.googleapis.com/css2?family=Orbitron&display=swap" rel="stylesheet">
+<head title="Try your Luck">
+</head>
+<script>
+	function checkCode() {
+    	let value = document.getElementById("codeInput").value;
+
+		if (value === "161803") {
+			window.location.href = "161803.html";
+		} else if (value === "house")
+		{
+			window.location.href = "TheHouse.html";
+		}
+    }
+
+</script>
+<body>
+	<table>
+		<tr style="display: flex; justify-content: center; height: 300px; justify-self: center; top: 240px; right: 100px; position: relative;">
+			<td style="padding-top: 130px; align-items:end;">
+				<img src="download.gif" width="400px"; height="200px;">
+			</td>
+			<td>
+				<div style="position: relative; display: flex; justify-content: center; top: 20px;">
+					<img src="Enter_Password_1.png"; style="justify-self: center; height: 300px;">
+					<input id="codeInput" type="text" placeholder="Versuch dein Glück..." style="
+							position: absolute;
+							top: 120px;
+							border-style: groove;
+							border-width: 10px;
+							border-color: blueviolet;
+							width: 300px;
+							height: 50px;">
+						<button onclick="checkCode()" style="position: absolute; top: 220px; background-color: rgba(9, 235, 235, 0.842);">ENTER</button>
+				</div>
+			</td>
+		</tr>
+	</table>
+</body>
 </html>

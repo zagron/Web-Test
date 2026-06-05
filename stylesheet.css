@@ -1,0 +1,45 @@
+*{
+    font-family: 'Orbitron', sans-serif;
+}
+html, body {
+    height: 100%;
+    margin: 0;
+}
+
+/* Hintergrund */
+body {
+    background-image: url(background.png);
+    background-size: cover;
+    display: flex;
+    justify-content: center;
+}
+h1{
+    color: rgb(221, 73, 5);
+    margin: 10;
+    justify-self: center;
+}
+button{
+    color: black;
+    background-color: brown;
+    justify-content: center;
+}
+.centerbilder
+{
+    display: grid; 
+    grid-template-columns: 1; 
+    grid-template-rows: 2;
+    place-items: center;
+}
+.center-container {
+    position: absolute;
+    margin-top: 230px;
+
+    display: grid;
+    grid-template-columns: repeat(5, 200px);
+    gap: 60px 10px;
+
+    height: 400px;        
+    overflow-y: auto;     
+    overflow-x: hidden;
+    padding: 10px;
+}
