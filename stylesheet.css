@@ -38,8 +38,11 @@ button{
     grid-template-columns: repeat(5, 200px);
     gap: 60px 10px;
 
-    height: 400px;        
-    overflow-y: auto;     
+    height: 400px;
+    overflow-y: auto;
     overflow-x: hidden;
     padding: 10px;
+}
+#my-popover::backdrop {
+    background-color: rgba(0, 0, 0, 0.7);
 }

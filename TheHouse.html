@@ -6,10 +6,11 @@
 <head>
 </head>
 <body>
+	<img id="theGif" src="download.gif" style="height: 200px; max-width: 200px; padding-right: 10px; position: fixed; top: 0; left: 0; z-index: 1000;">
 	<div style="position: relative; display: flex; justify-content: center; ">
 		<img src="OrdnerLila.png" style="position: absolute; top: -40px; left: 400px; height: 375px; width: 650px;">
 		<label style="position: absolute; top: 125px; font-size:xx-large;"> House</label>
-		<img src="6.png"; style="display: flex;justify-self: center;">
+		<img src="6.png"; style="display: flex; justify-self: center; width: 1700px; height: 900px;">
 			<div style="position: absolute; 
 			display: grid; 
 			grid-template-columns: repeat(5, 200px); 
@@ -20,6 +21,13 @@
 			
 			
 			">
+			<div popover="" id="my-popover" class="box flow">
+  				<h2>Passwort:</h2>
+				<input type="text" placeholder="Enter password...">
+				<button>ENTER</button>
+   				<button popovertarget="my-popover" popovertargetaction="hide">HIDE</button>
+			</div>
+
 			<div class="center-container">
 				<div class="centerbilder"><img src="Zettel.png";><label>Garten</label></div>
 				<div class="centerbilder"><img src="Zettel.png";><label>Pflanzen</label></div>
@@ -45,4 +53,11 @@
 			</div>
     </div>
 </body>
+<script>
+document.querySelectorAll('.centerbilder').forEach(el => {
+  el.addEventListener('click', () => {
+    document.getElementById('my-popover').showPopover();
+  });
+});
+</script>
 </html>

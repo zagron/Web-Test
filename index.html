@@ -3,42 +3,85 @@
     <meta charset="utf-8">
     <link rel="stylesheet" href="stylesheet.css">
 	<link href="https://fonts.googleapis.com/css2?family=Orbitron&display=swap" rel="stylesheet">
-<head title="Try your Luck">
-</head>
-<script>
-	function checkCode() {
-    	let value = document.getElementById("codeInput").value;
+	<head title="Try your Luck">
+		<meta http-equiv="Cache-Control" content="no-cache, no-store, must-revalidate" />
+		<meta http-equiv="Pragma" content="no-cache" />
+		<meta http-equiv="Expires" content="0" />
+		<style>
+			#theGif {
+				position: fixed;
+				left: calc(50% - 500px);
+				top: 100px;
+				transition: all 0.7s ease;
+				z-index: 1000;
+				width: 350px;
+				height: 200px;
+			}
 
-		if (value === "161803") {
-			window.location.href = "161803.html";
-		} else if (value === "house")
-		{
-			window.location.href = "TheHouse.html";
+			#theGif.move-to-top-left {
+				left: 12px;
+				top: -300px;
+				transform: scale(1);
+			}
+		</style>
+	</head>
+	<script>
+		function checkCode() {
+			let value = document.getElementById("codeInput").value;
+			const gif = document.getElementById('theGif');
+
+			if (value === "161803") {
+				gif.classList.add('move-to-top-left');
+				gif.addEventListener('transitionend', function() {
+					window.location.href = "161803.html";
+				}, { once: true });
+			} else if (value === "house") {
+				gif.classList.add('move-to-top-left');
+				gif.addEventListener('transitionend', function() {
+					window.location.href = "TheHouse.html";
+				}, { once: true });
+			}
 		}
-    }
 
-</script>
-<body>
-	<table>
-		<tr style="display: flex; justify-content: center; height: 300px; justify-self: center; top: 240px; right: 100px; position: relative;">
-			<td style="padding-top: 130px; align-items:end;">
-				<img src="download.gif" width="400px"; height="200px;">
-			</td>
-			<td>
-				<div style="position: relative; display: flex; justify-content: center; top: 20px;">
-					<img src="Enter_Password_1.png"; style="justify-self: center; height: 300px;">
-					<input id="codeInput" type="text" placeholder="Versuch dein Glück..." style="
-							position: absolute;
-							top: 120px;
-							border-style: groove;
-							border-width: 10px;
-							border-color: blueviolet;
-							width: 300px;
-							height: 50px;">
-						<button onclick="checkCode()" style="position: absolute; top: 220px; background-color: rgba(9, 235, 235, 0.842);">ENTER</button>
+		document.addEventListener('DOMContentLoaded', function() {
+			const input = document.getElementById('codeInput');
+			if (input) {
+				input.addEventListener('keydown', function(e) {
+					if (e.key === 'Enter') {
+						e.preventDefault();
+						checkCode();
+					}
+				});
+			}
+		});
+
+		window.addEventListener('load', () => {
+			const navEntries = performance.getEntriesByType('navigation');
+			if (navEntries.length > 0 && navEntries[0].type === 'back_forward') {
+				location.reload();
+			}
+		});
+
+	</script>
+	<body>
+		<div style="position: relative; display: flex; justify-content: center; align-items: center;">
+			<div style="position: relative; display: flex; align-items: center;">
+				<img id="theGif" src="download.gif" style="height: 200px; max-width: 200px; margin-top: 300px; margin-left: -10px;">
+				<div style="position: relative;">
+					<img src="Enter_Password_1.png" style="height: 300px;">
+					<div style="position: absolute; display: flex; flex-direction: column; align-items: center; gap: 20px; left: 50%; top: calc(50% + 30px); transform: translate(-50%, -50%);">
+						<input id="codeInput" type="text" placeholder="Versuch dein Glück..." style="
+								border-style: groove;
+								border-width: 10px;
+								border-color: blueviolet;
+								width: 300px;
+								height: 50px;
+								font-size: 25px;
+								">
+						<button onclick="checkCode()" style="background-color: rgba(9, 235, 235, 0.842);">ENTER</button>
+					</div>
 				</div>
-			</td>
-		</tr>
-	</table>
-</body>
+			</div>
+		</div>
+	</body>
 </html>
